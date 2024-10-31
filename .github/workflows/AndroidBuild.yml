@@ -33,14 +33,13 @@ jobs:
           path: app/build/outputs/apk/debug/app-debug.apk
 
       - name: Send Email Notification
-        if: success()  # Only send email if previous steps were successful
         uses: dawidd6/action-send-mail@v3.0.0
         with:
-            smtp-server: ${{ secrets.SMTP_SERVER }}
-            smtp-port: ${{ secrets.SMTP_PORT }}
-            smtp-user: ${{ secrets.SMTP_USER }}
-            smtp-password: ${{ secrets.SMTP_PASSWORD }}
-            subject: "APK Build Successful"
-            body: "The APK has been successfully built. You can download it from the artifacts."
-            to: ${{ secrets.TO_EMAIL }}
-            attachments: app/build/outputs/apk/debug/app-debug.apk
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USER }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: APK Build Successful
+          body: The APK has been successfully built. You can download it from the artifacts.
+          to: ${{ secrets.TO_EMAIL }}
+          attachments: app/build/outputs/apk/debug/app-debug.apk
