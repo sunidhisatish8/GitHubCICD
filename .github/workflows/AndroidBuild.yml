@@ -42,4 +42,5 @@ jobs:
           subject: APK Build Successful
           body: The APK has been successfully built. You can download it from the artifacts.
           to: ${{ secrets.TO_EMAIL }}
+          from: ${{ secrets.FROM_EMAIL }}
           attachments: app/build/outputs/apk/debug/app-debug.apk
