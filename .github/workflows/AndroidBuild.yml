@@ -18,6 +18,11 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
+      - name: Ensure gradlew is executable
+        run: |
+         chmod +x gradlew
+         ls -l gradlew  # Optional: check permissions
+
       - name: Build with Gradle
         run: ./gradlew build
 
